@@ -65,3 +65,28 @@ Not at all. But if you think this could be useful to you then drop me a line. If
 happy to create one, but only if it's of any interest.
 
 Feel free to request any feature, or to refactor anything as long as it goes with the default flux conventions.
+
+### Gotchas
+If you generated an api file, you will noticed it was created under webapi/ directory. All directories are hardcoded by now
+but I'm planning to make them flexible. I wasn't sure about what would be the default web api utils directory becuase 
+in the flux chatapp demo, they use a utils/ directory and a WebApiUtil file. They also mix some other non api utils under 
+that directory, so I prefered to use a proper directory for api calls only.
+
+In the generated api file, you will notice a reference to `ApiResponseHandler`. I found myself repeating the same response
+handler code over and over, so then I moved that common code to a separate file. This file reads like this:
+
+```
+module.exports = {
+    handle: function(err, res, successCallback) {
+        if (err) {
+            alert('ERROR!!!!!');
+            console.log(err);
+            return;
+        }
+
+        successCallback(JSON.parse(res.text));
+    }
+};
+```
+
+It's not a full featured handler ("alerting" is pretty ugly btw), but you can extend it to your needs.
