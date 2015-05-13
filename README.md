@@ -3,10 +3,18 @@ A Facebok Flux scaffold generator in Golang
 
 #### TL;DR
 Yes, I know, I should have done it in an npm package instead ;) But my main goal was to learn a bit of Go.
-I haven't also included tests, please don't hate me.
+I  also didn't include tests, please don't hate me.
 
 ### Usage
 Afer you have downloaded and installed the packaged you will be able to invoke `fluxscaffold` command.
+
+A full example of how to use it from a terminal:
+
+```
+$ cd /into/your/flux/root/dir/
+$ fluxscaffold -domain=product -const=PRODUCTS_FETCH_ALL -action=fetchAll -api
+```
+
 The available flags are:
 * domain: A domain object name, e.g. "user", "product", "pizza". This value will be used to infer the constant,
 action, store, and webapi file name. For instance, if you choose "user" you will get "constants/user-constants.js",
@@ -15,7 +23,7 @@ action, store, and webapi file name. For instance, if you choose "user" you will
 * action: A single action method, e.g. "fetchAll". This will create an action method with that name inside the
 action creator file.
 
-* constant: A single constant name, e.g. "USERS_FETCH_ALL". This will be referenced in the constant, action and store
+* const: A single constant name, e.g. "USERS_FETCH_ALL". This will be referenced in the constant, action and store
 files.
 
 * api: Optional. No value required, you can invoke it just like "-api". This will tell the tool to also scaffold a
@@ -25,7 +33,7 @@ webapi file.
 Besides telling the tool to generate a webapi file, it will also modify the content of the constant, action and store
 files.
 
-If you passed `-constant=USERS_FETCH_ALL`, the constant file will looks like this:
+If you passed `-const=USERS_FETCH_ALL`, the constant file will looks like this:
 
 ```
   UserConstants = keymirror({
@@ -40,6 +48,10 @@ action is to fetch a domain object collection. You will notice a different signa
 For example, with no api flag, the store  will listen to "USERS_FETCH_ALL". If the api flag is present,
 the store will listen to "USERS_FETCH_ALL_SUCCESS" instead, since we assume the `users` collection is only available
 until the webapi request has "succeeded".
+
+By the way, when passing the api flag, you don't need to change the domain value to "users". You should keep
+using "user". The tool will append an "s" to the domain value where necessary. Of course, this won't be accurate
+100% of the time, but I expect it to work for at least 90% of the time.
 
 Keep in mind you will need to manually update the files. This tool is not meant to fire & forget, but to avoid
 the tedious work of creating and boostraping each flux file.
