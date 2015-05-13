@@ -17,7 +17,7 @@ $ fluxscaffold -domain=product -const=PRODUCTS_FETCH_ALL -action=fetchAll -api
 
 The available flags are:
 * domain: A domain object name, e.g. "user", "product", "pizza". This value will be used to infer the constant,
-action, store, and webapi file name. For instance, if you choose "user" you will get "constants/user-constants.js",
+action, store, component and webapi file name. For instance, if you choose "user" you will get "constants/user-constants.js",
 "actions/user-actions.js", "stores/user-store.js", "webapi/user-api.js", "components/user.js"
 
 * action: A single action method, e.g. "fetchAll". This will create an action method with that name inside the
