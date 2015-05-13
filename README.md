@@ -54,7 +54,7 @@ using "user". The tool will append an "s" to the domain value where necessary. O
 100% of the time, but I expect it to work for at least 90% of the time.
 
 Keep in mind you will need to manually update the files. This tool is not meant to fire & forget, but to avoid
-the tedious work of creating and boostraping each flux file.
+the tedious work of creating and bootstrapping each flux file.
 
 ### Is this vanilla flux?
 Yes, it is. I've been working with Flux since almost a year from now, and I feel more confortable with vanilla flux
