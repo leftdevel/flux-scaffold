@@ -73,12 +73,13 @@ in the flux chatapp demo, they use a utils/ directory and a WebApiUtil file. The
 that directory, so I prefered to use a proper directory for api calls only.
 
 In the generated api file, you will notice a reference to `ApiResponseHandler`. I found myself repeating the same response
-handler code over and over, so then I moved that common code to a separate file. This file reads like this:
+handler code over and over, so I decided to move that common code to a separate file. The file could read something like this:
 
 ```
 module.exports = {
     handle: function(err, res, successCallback) {
         if (err) {
+            // @TODO add proper error handling
             alert('ERROR!!!!!');
             console.log(err);
             return;
