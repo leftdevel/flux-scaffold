@@ -27,12 +27,20 @@ func main() {
     actionGenerator := ResourceGenerator{&Action{ResourceOptions(resourceOptions)}}
     storeGenerator := ResourceGenerator{&Store{ResourceOptions(resourceOptions)}}
 
-    constantGenerator.Execute()
-    actionGenerator.Execute()
-    storeGenerator.Execute()
+    routines := 3;
+    race := make(chan bool)
+
+    go constantGenerator.Execute(race)
+    go actionGenerator.Execute(race)
+    go storeGenerator.Execute(race)
 
     if (isApi) {
+        routines++
         apiGenerator := ResourceGenerator{&Api{ResourceOptions(resourceOptions)}}
-        apiGenerator.Execute()
+        go apiGenerator.Execute(race)
+    }
+
+    for i:= 0; i < routines; i++ {
+        <- race
     }
 }

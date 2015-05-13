@@ -2,29 +2,38 @@ package main
 
 import (
     "fmt"
-    "os"
 )
 
 type ResourceGenerator struct {
     Res ResourceInterface
 }
 
-func (rg *ResourceGenerator) Execute() {
-    rg.createDirIfNotExists()
+func (rg *ResourceGenerator) Execute(race chan<- bool) bool {
+    if _, err := rg.createDirIfNotExists(); err != nil {
+        fmt.Println("Unexpected error while checking ", rg.Res.GetDir(), err)
+        race <- true
+        return false
+    }
+
     rg.createFileIfNotExists()
+    race <- true
+    return true
 }
 
-func (rg *ResourceGenerator) createDirIfNotExists() {
+func (rg *ResourceGenerator) createDirIfNotExists() (bool, error) {
     fullDirPath := GetFullDirPath(rg.Res.GetDir())
     exists, err := PathExists(fullDirPath)
 
     if err != nil {
-        fmt.Println("Unexpected error while checking ", rg.Res.GetDir(), err)
-        os.Exit(1)
+        return false, err
     }
 
     if exists == false {
         CreateDir(fullDirPath)
+
+        return true, nil
+    } else {
+        return false, nil
     }
 }
 
