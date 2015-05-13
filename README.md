@@ -50,8 +50,8 @@ the store will listen to "USERS_FETCH_ALL_SUCCESS" instead, since we assume the 
 until the webapi request has "succeeded".
 
 By the way, when passing the api flag, you don't need to change the domain value to "users". You should keep
-using "user". The tool will append an "s" to the domain value where necessary. Of course, this won't be accurate
-100% of the time, but I expect it to work for at least 90% of the time.
+using "user". The tool will append an "s" to the domain value where necessary. Of course, this won't be grammatically accurate
+100% of the time, but it should to work for at least 90% of the time.
 
 Keep in mind you will need to manually update the files. This tool is not meant to fire & forget, but to avoid
 the tedious work of creating and bootstrapping each flux file.
@@ -68,8 +68,8 @@ Feel free to request any feature, or to refactor anything as long as it goes wit
 
 ### Gotchas
 If you generated an api file, you will noticed it was created under webapi/ directory. All directories are hardcoded by now
-but I'm planning to make them flexible. I wasn't sure about what would be the default web api utils directory becuase 
-in the flux chatapp demo, they use a utils/ directory and a WebApiUtil file. They also mix some other non api utils under 
+but I'm planning to make them flexible. I wasn't sure about what would be the default web api utils directory becuase
+in the flux chatapp demo, they use a utils/ directory and a WebApiUtil file. They also mix some other non api utils under
 that directory, so I prefered to use a proper directory for api calls only.
 
 In the generated api file, you will notice a reference to `ApiResponseHandler`. I found myself repeating the same response
