@@ -54,8 +54,12 @@ func createGenerators() {
 func executeGenerators() {
     race := make(chan bool)
 
-    for _, generator := range generators {
+    for i := range generators {
+        generator := generators[i]
         go generator.Execute(race)
+    }
+
+    for j, generatorsLen := 0, len(generators); j < generatorsLen; j++ {
         <- race
     }
 }

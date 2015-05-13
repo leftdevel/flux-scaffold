@@ -10,7 +10,7 @@ type Constant struct {
 }
 
 func (c *Constant) GetDir() string {
-        return "constants"
+    return "constants"
 }
 
 func (c *Constant) GetFileName() string {

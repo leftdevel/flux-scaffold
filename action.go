@@ -10,7 +10,7 @@ type Action struct {
 }
 
 func (a *Action) GetDir() string {
-        return "actions"
+    return "actions"
 }
 
 func (a *Action) GetFileName() string {

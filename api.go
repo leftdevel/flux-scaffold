@@ -10,7 +10,7 @@ type Api struct {
 }
 
 func (s *Api) GetDir() string {
-        return "webapi"
+    return "webapi"
 }
 
 func (s *Api) GetFileName() string {

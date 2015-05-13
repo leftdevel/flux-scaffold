@@ -10,7 +10,7 @@ type Store struct {
 }
 
 func (s *Store) GetDir() string {
-        return "stores"
+    return "stores"
 }
 
 func (s *Store) GetFileName() string {
