@@ -40,10 +40,12 @@ func createGenerators() {
     constantGenerator := ResourceGenerator{&Constant{ResourceOptions(resourceOptions)}}
     actionGenerator := ResourceGenerator{&Action{ResourceOptions(resourceOptions)}}
     storeGenerator := ResourceGenerator{&Store{ResourceOptions(resourceOptions)}}
+    componentGenerator := ResourceGenerator{&Component{ResourceOptions(resourceOptions)}}
 
     generators = append(generators, constantGenerator)
     generators = append(generators, actionGenerator)
     generators = append(generators, storeGenerator)
+    generators = append(generators, componentGenerator)
 
     if (isApi) {
         apiGenerator := ResourceGenerator{&Api{ResourceOptions(resourceOptions)}}
