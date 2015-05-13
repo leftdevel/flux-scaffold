@@ -57,7 +57,7 @@ func (c *Component) getBodyTemplateVariation() string {
             "        );\n" +
             "    }\n" +
             "});\n\n" +
-            "module.exports = %[1]ss;\n"
+            "module.exports = %[1]ss;"
     } else {
         return "" +
             "function getState() {\n" +
@@ -73,7 +73,7 @@ func (c *Component) getBodyTemplateVariation() string {
             "        );\n" +
             "    }\n" +
             "});\n\n" +
-            "module.exports = %[1]s;\n"
+            "module.exports = %[1]s;"
     }
 
 }
