@@ -27,8 +27,7 @@ func CreateDir(fullDirPath string) {
 }
 
 func GetRootDir() string {
-    //return "." + string(filepath.Separator)
-    return "/Volumes/Data/test/"
+    return "." + string(filepath.Separator)
 }
 
 func CreateFile(fullFilePath string) *os.File {
