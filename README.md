@@ -3,7 +3,12 @@ A Facebok Flux scaffold generator in Golang
 
 #### TL;DR
 Yes, I know, I should have done it in an npm package instead ;) But my main goal was to learn a bit of Go.
-I  also didn't include tests, please don't hate me.
+I  also didn't include tests for now, please don't hate me.
+
+Although Go is pretty easy to pick, I struggled to get nice composition and avoid repeating code. Gladly I think
+I achieved it :)
+
+Files api.go, component.go, constant.go, action.go and store.go implements resource-interface. resource-generator depends on this interface, so it stays abstracted away from each resource implementation details.
 
 ### Usage
 Afer you have downloaded and installed the packaged you will be able to invoke `fluxscaffold` command.
