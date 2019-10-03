@@ -1,5 +1,5 @@
 # flux-scaffold
-A Facebok Flux scaffold generator in Golang
+A Facebook Flux scaffold generator in Golang
 
 #### TL;DR
 Yes, I know, I should have done it in an npm package instead ;) But my main goal was to learn a bit of Go.
